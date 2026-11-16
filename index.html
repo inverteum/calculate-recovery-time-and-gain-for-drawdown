@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Calculate recovery time and gain for drawdown</title>
+  <meta name="description" content="An illustrative calculator for the gain and time needed to recover from a portfolio drawdown.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Wix+Madefor+Text:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tools.css">
+</head>
+<body>
+  <div class="page" id="main">
+    <header class="intro">
+      <h1>Calculate recovery time and gain for drawdown</h1>
+      <p class="lede">A loss and the gain needed to recover are not the same size. A 20% fall, for example, needs a 25% gain to get back to even.</p>
+      <p class="note">Figures on this page are illustrative. They are not Inverteum performance, and they are not a forecast.</p>
+    </header>
+    <section class="panel" aria-labelledby="drawdown-heading">
+      <h2 id="drawdown-heading" class="visually-hidden">Drawdown recovery</h2>
+      <div class="drawdown-controls">
+        <div class="field">
+          <label for="loss-pct">Portfolio fall</label>
+          <div class="range-wrap">
+            <input id="loss-pct" type="range" min="1" max="80" step="1" value="20" aria-valuetext="20 percent">
+          </div>
+          <p class="stat-sub" id="loss-label">20%</p>
+        </div>
+        <div class="field">
+          <label for="annual-return">Assumed annual return after the fall</label>
+          <input id="annual-return" type="number" inputmode="decimal" step="0.1" value="7" aria-describedby="annual-hint">
+          <p class="stat-sub" id="annual-hint">Percent per year, used only to estimate how long recovery would take.</p>
+        </div>
+      </div>
+      <div class="recovery-visual" aria-hidden="true" id="recovery-visual"></div>
+      <div class="stat-grid cols-3">
+        <div class="stat highlight">
+          <p class="stat-label">Gain needed to recover</p>
+          <p class="stat-value" id="gain-needed">25.0%</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">After the fall</p>
+          <p class="stat-value" id="after-fall">80</p>
+          <p class="stat-sub">Starting from 100</p>
+        </div>
+        <div class="stat">
+          <p class="stat-label">Time to recover</p>
+          <p class="stat-value" id="years-needed">3.3 yrs</p>
+          <p class="stat-sub" id="years-note">At 7% a year, compounded</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+
+</body>
+</html>
